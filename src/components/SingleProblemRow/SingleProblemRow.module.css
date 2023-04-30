@@ -1,0 +1,26 @@
+.problems_table_row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 1rem;
+  color: #ffffff;
+}
+
+.problems_table_row_cell_title {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.problems_table_row_cell_title:hover {
+  color: #007fff;
+  transition: 0.3s ease-in;
+}
+
+.easy_problem {
+  color: #00b8a3;
+}
+.medium_problem {
+  color: #ffc01e;
+}
+.hard_problem {
+  color: #ff375f;
+}

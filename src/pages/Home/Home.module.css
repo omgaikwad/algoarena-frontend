@@ -1,0 +1,55 @@
+.home {
+  box-sizing: border-box;
+  background-color: #1a1a1a;
+  min-height: 100vh;
+}
+
+.problems_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.problems_table {
+  width: 50%;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.problems_table_header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 1rem;
+  color: #999b9e;
+  border-bottom: 1px solid #999b9e;
+}
+
+.problems_table_row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 8px;
+  color: #ffffff;
+}
+
+.problems_table_row_cell_title {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.problems_table_row_cell_title:hover {
+  color: blue;
+  transition: 0.3s ease-in;
+}
+
+.easy_problem {
+  color: #00b8a3;
+}
+.medium_problem {
+  color: #ffc01e;
+}
+.hard_problem {
+  color: #ff375f;
+}

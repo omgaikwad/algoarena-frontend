@@ -1,0 +1,49 @@
+.problem_page {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+}
+
+.problem_container {
+  box-sizing: border-box;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.problem_description_container {
+  background-color: #282828;
+  color: white;
+  margin: 8px;
+  padding: 0 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.code_editor_container {
+}
+
+.problem_difficulty {
+  background-color: #223d3a;
+  color: #00b8a3;
+  padding: 4px 8px;
+  border-radius: 1rem;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.problem_example {
+  background-color: #373737;
+  padding: 4px 1rem;
+  border-radius: 8px;
+}
+
+.code_editor_container {
+  background-color: #282828;
+  margin: 8px;
+  padding: 1rem;
+  border-radius: 8px;
+}
