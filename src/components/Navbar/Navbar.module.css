@@ -5,7 +5,9 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  position: static;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .navbar_left_container {

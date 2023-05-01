@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./Signup.module.css";
+import styles from "./Login.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 
-const Signup = () => {
+const Login = () => {
   return (
     <div className={styles["signup"]}>
       <Navbar />
@@ -19,29 +19,21 @@ const Signup = () => {
               type="text"
               placeholder="Username"
             />
-            <input
-              className={styles["signup_input"]}
-              type="email"
-              placeholder="Email"
-            />
+
             <input
               className={styles["signup_input"]}
               type="password"
               placeholder="Password"
             />
-            <input
-              className={styles["signup_input"]}
-              type="password"
-              placeholder="Confirm Password"
-            />
+
             <button className={styles["signup_btn"]} type="submit">
-              Sign Up
+              Login
             </button>
           </form>
 
           <div className={styles["redirect_btn_container"]}>
             <a href="/" className={styles["redirect_btn"]}>
-              <span>Already have an account</span>
+              <span>Create New Account</span>
               <i className="fas fa-chevron-right"></i>
             </a>
           </div>
@@ -51,4 +43,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;
