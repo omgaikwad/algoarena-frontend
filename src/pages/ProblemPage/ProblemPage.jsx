@@ -1,8 +1,32 @@
 import React from "react";
 import styles from "./ProblemPage.module.css";
 import Navbar from "../../components/Navbar/Navbar";
+import { useState } from "react";
+import { MAIN_REST_API, PORT } from "../../server";
+import axios from "axios";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const ProblemPage = () => {
+  const [problem, setProblem] = useState({});
+  const { id } = useParams();
+
+  const getProblemData = async () => {
+    try {
+      const response = await axios.get(
+        `${MAIN_REST_API}:${PORT}/problem/${id}`
+      );
+      console.log(response);
+      setProblem(response.data);
+    } catch (error) {
+      console.log("error in getProblemData", error);
+    }
+  };
+
+  useEffect(() => {
+    getProblemData();
+  }, []);
+
   return (
     <div className={styles["problem_page"]}>
       <Navbar />
@@ -10,22 +34,18 @@ const ProblemPage = () => {
       <div className={styles["problem_container"]}>
         <div className={styles["problem_description_container"]}>
           <div className={styles["title_container"]}>
-            <h3 className={styles["problem_title"]}>1. Two Sum</h3>
-            <span className={styles["problem_difficulty"]}>Easy</span>
+            <h3 className={styles["problem_title"]}>{problem.title}</h3>
+            <span
+              className={`${styles["problem_difficulty"]} ${
+                styles[`${problem.difficulty}_problem`]
+              } `}
+            >
+              {problem.difficulty}
+            </span>
           </div>
 
           <div className={styles["problem_description"]}>
-            <p>
-              Given an array of integers nums and an integer target, return
-              indices of the two numbers such that they add up to target.
-            </p>
-
-            <p>
-              You may assume that each input would have exactly one solution,
-              and you may not use the same element twice.
-            </p>
-
-            <p>You can return the answer in any order.</p>
+            <p>{problem.description}</p>
           </div>
 
           <h4>Example 1:</h4>

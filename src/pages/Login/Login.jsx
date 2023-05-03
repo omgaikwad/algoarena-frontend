@@ -1,8 +1,21 @@
 import React from "react";
 import styles from "./Login.module.css";
 import Navbar from "../../components/Navbar/Navbar";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { MAIN_REST_API, PORT } from "../../server";
 
 const Login = () => {
+  const loginHandler = async (e) => {
+    e.preventDefault();
+    console.log("login handler clicked");
+    try {
+      const response = await axios.post(`${MAIN_REST_API}:${PORT}/login`);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className={styles["signup"]}>
       <Navbar />
@@ -13,7 +26,10 @@ const Login = () => {
             <img className={styles["logo"]} src="/assets/logo.png" alt="logo" />
             <p className={styles["logo_text"]}>algo arena</p>
           </div>
-          <form className={styles["signup_form"]}>
+          <form
+            onSubmit={(e) => loginHandler(e)}
+            className={styles["signup_form"]}
+          >
             <input
               className={styles["signup_input"]}
               type="text"
@@ -32,10 +48,10 @@ const Login = () => {
           </form>
 
           <div className={styles["redirect_btn_container"]}>
-            <a href="/" className={styles["redirect_btn"]}>
+            <Link href="/" className={styles["redirect_btn"]}>
               <span>Create New Account</span>
               <i className="fas fa-chevron-right"></i>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

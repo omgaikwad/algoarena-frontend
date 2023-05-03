@@ -2,8 +2,27 @@ import React from "react";
 import styles from "./Home.module.css";
 import Navbar from "../../components/Navbar/Navbar";
 import SingleProblemRow from "../../components/SingleProblemRow/SingleProblemRow";
+import { useState } from "react";
+import axios from "axios";
+import { MAIN_REST_API, PORT } from "../../server";
+import { useEffect } from "react";
 
 const Home = () => {
+  const [problems, setProblems] = useState([]);
+
+  const getAllProblems = async () => {
+    try {
+      const response = await axios.get(`${MAIN_REST_API}:${PORT}/problems`);
+      setProblems(response.data);
+    } catch (error) {
+      console.log("error in getAllProblems", error);
+    }
+  };
+
+  useEffect(() => {
+    getAllProblems();
+  }, []);
+
   return (
     <div className={styles["home"]}>
       <Navbar />
@@ -19,8 +38,10 @@ const Home = () => {
 
             <div className={styles["problems_table_header_cell"]}>Accuracy</div>
           </div>
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((problem, index) => {
-            return <SingleProblemRow key={index} index={index} />;
+          {problems.map((problem, index) => {
+            return (
+              <SingleProblemRow key={index} index={index} problem={problem} />
+            );
           })}
         </div>
       </div>

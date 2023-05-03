@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./SingleProblemRow.module.css";
+import { Link } from "react-router-dom";
 
-const SingleProblemRow = ({ index }) => {
+const SingleProblemRow = ({ index, problem }) => {
   return (
     <div
       className={styles["problems_table_row"]}
@@ -10,13 +11,18 @@ const SingleProblemRow = ({ index }) => {
       }}
     >
       <div className={styles["problems_table_row_cell"]}>{index + 1}.</div>
-      <a href="/problem/1" className={styles["problems_table_row_cell_title"]}>
-        Two Sum
-      </a>
-      <div
-        className={`${styles["problems_table_row_cell"]} ${styles["easy_problem"]}`}
+      <Link
+        to={`/problem/${problem._id}`}
+        className={styles["problems_table_row_cell_title"]}
       >
-        Easy
+        {problem.title}
+      </Link>
+      <div
+        className={`${styles["problems_table_row_cell"]} ${
+          styles[`${problem.difficulty}_problem`]
+        }`}
+      >
+        {problem.difficulty}
       </div>
       <div className={styles["problems_table_row_cell"]}>45.6%</div>
     </div>

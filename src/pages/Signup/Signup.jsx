@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Signup.module.css";
 import Navbar from "../../components/Navbar/Navbar";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   return (
@@ -40,10 +41,10 @@ const Signup = () => {
           </form>
 
           <div className={styles["redirect_btn_container"]}>
-            <a href="/" className={styles["redirect_btn"]}>
+            <Link to="/login" className={styles["redirect_btn"]}>
               <span>Already have an account</span>
               <i className="fas fa-chevron-right"></i>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

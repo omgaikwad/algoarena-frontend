@@ -27,12 +27,23 @@
 }
 
 .problem_difficulty {
-  background-color: #223d3a;
-  color: #00b8a3;
   padding: 4px 8px;
   border-radius: 1rem;
   font-size: 12px;
   font-weight: 600;
+}
+
+.easy_problem {
+  background-color: #223d3a;
+  color: #00b8a3;
+}
+.medium_problem {
+  background-color: #483f26;
+  color: #ffc01e;
+}
+.hard_problem {
+  background-color: #482a30;
+  color: #ff375f;
 }
 
 .problem_example {

@@ -72,6 +72,7 @@
   background-color: var(--primary-color);
   color: white;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .redirect_btn {
