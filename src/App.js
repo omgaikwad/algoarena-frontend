@@ -1,4 +1,5 @@
 import "./App.css";
+import PrivateRoute from "./Route/PrivateRoute";
 import SingleProblemRow from "./components/SingleProblemRow/SingleProblemRow";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
@@ -13,7 +14,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/problem/:id" element={<ProblemPage />} />
+
+        <Route exact path="/problem/:id" element={<PrivateRoute />}>
+          <Route exact path="/problem/:id" element={<ProblemPage />} />
+        </Route>
       </Routes>
     </div>
   );

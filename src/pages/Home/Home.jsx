@@ -6,9 +6,13 @@ import { useState } from "react";
 import axios from "axios";
 import { MAIN_REST_API, PORT } from "../../server";
 import { useEffect } from "react";
+import { useAuthContext } from "../../context/auth-context";
 
 const Home = () => {
   const [problems, setProblems] = useState([]);
+
+  const { auth } = useAuthContext();
+  console.log(auth);
 
   const getAllProblems = async () => {
     try {

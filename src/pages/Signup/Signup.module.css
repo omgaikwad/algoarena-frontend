@@ -17,11 +17,11 @@
 .signup_container__form {
   background-color: #282828;
   width: 18rem;
-  height: 30rem;
+  height: 32rem;
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 1rem;
+  gap: 8px;
   padding: 1rem;
   border-radius: 8px;
 }
@@ -72,6 +72,7 @@
   background-color: var(--primary-color);
   color: white;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .redirect_btn {
@@ -80,6 +81,7 @@
   align-items: center;
   gap: 4px;
   text-decoration: none;
+  margin-top: 0;
 }
 
 .redirect_btn span {
@@ -89,4 +91,14 @@
 .redirect_btn:hover {
   color: var(--primary-color);
   transition: 0.3s ease-in;
+}
+
+.error_text {
+  border: 2px solid red;
+  margin: 0;
+  padding: 8px;
+  color: red;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 4px;
 }
