@@ -6,6 +6,11 @@ import { MAIN_REST_API, PORT } from "../../server";
 import axios from "axios";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import AceEditor from "react-ace";
+
+import "ace-builds/src-noconflict/mode-c_cpp";
+import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-noconflict/ext-language_tools";
 
 const ProblemPage = () => {
   const [problem, setProblem] = useState({});
@@ -26,6 +31,20 @@ const ProblemPage = () => {
   useEffect(() => {
     getProblemData();
   }, []);
+
+  function onChange(newValue) {
+    console.log("change", newValue);
+  }
+
+  const defaultCode = `
+  #include <bits/stdc++.h>
+  using namespace std;
+
+  int main() {
+    
+    // write your code here
+  }
+  `;
 
   return (
     <div className={styles["problem_page"]}>
@@ -89,7 +108,22 @@ const ProblemPage = () => {
         </div>
 
         <div className={styles["code_editor_container"]}>
-          <div className={styles["code_editor"]}></div>
+          <div className={styles["code_editor"]}>
+            <AceEditor
+              mode="c_cpp"
+              theme="monokai"
+              onChange={onChange}
+              name="ALGOARENA_CODE_EDITOR"
+              editorProps={{ $blockScrolling: true }}
+              height="600px"
+              width="750px"
+              defaultValue={defaultCode}
+              setOptions={{
+                enableBasicAutocompletion: true,
+                enableLiveAutocompletion: true,
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
