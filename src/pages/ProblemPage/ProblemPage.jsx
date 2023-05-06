@@ -16,6 +16,8 @@ const ProblemPage = () => {
   const [problem, setProblem] = useState({});
   const { id } = useParams();
 
+  const [codeOutput, setCodeOutput] = useState("Output");
+
   const getProblemData = async () => {
     try {
       const response = await axios.get(
@@ -115,7 +117,7 @@ const ProblemPage = () => {
               onChange={onChange}
               name="ALGOARENA_CODE_EDITOR"
               editorProps={{ $blockScrolling: true }}
-              height="600px"
+              height="400px"
               width="750px"
               defaultValue={defaultCode}
               setOptions={{
@@ -123,6 +125,27 @@ const ProblemPage = () => {
                 enableLiveAutocompletion: true,
               }}
             />
+          </div>
+
+          <div className={styles["output_container"]}>
+            <div className={styles["action_button_container"]}>
+              <button className={styles["action_button_run"]}>Run</button>
+              <button className={styles["action_button_submit"]}>Submit</button>
+            </div>
+
+            <div className={styles["input_container"]}>
+              <div className={styles["input"]}>
+                <textarea
+                  placeholder="Input"
+                  name=""
+                  id=""
+                  cols="100"
+                  rows="10"
+                ></textarea>
+              </div>
+
+              <div className={styles["output_area"]}>{codeOutput}</div>
+            </div>
           </div>
         </div>
       </div>
